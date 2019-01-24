@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang=en>
+  <head>
+    <meta charset=utf-8>
+    <meta http-equiv=X-UA-Compatible content="IE=edge">
+    <meta name=viewport content="width=device-width,initial-scale=1">
+    <title>Megalos Connect</title>
+    <style>
+      html, body {
+        height: 100%;
+        padding: 0;
+        margin: 0;
+      }
+      * {
+        -webkit-box-sizing: border-box;
+                box-sizing: border-box;
+      }
+      .container {
+        display: table;
+        height: 100%;
+        width: 100%;
+        text-align: center;
+      }
+      .container > .inner {
+        display: table-cell;
+        vertical-align: middle;
+      }
+      .container > .inner > .content {
+        display: inline-block;
+        height: 90px;
+        width: 220px;
+        margin-top: -100px;
+        color: #190391;
+        font-size: 22px;
+        line-height: 150%;
+        border-bottom: solid 1px #190391;
+      }
+      .container > .inner > .action{
+        padding: 20px 0px;
+        letter-spacing: 2px;
+        color: #777;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="inner">
+        <div class="content">
+          &check;<br>Megalos Connected
+        </div>
+        <div class="action" id="close">
+          <span>CLOSE</span>
+        </div>
+      </div>
+    </div>
+    <script>
+      document.getElementById('close').addEventListener('click', function () {
+        window.parent.postMessage("message", '*');
+      })
+      var method = location.href.substr(location.href.length - 8, location.href.length);
+      if (method === '#connect') {
+        window.parent.postMessage("message", '*');
+      }
+    </script>
+  </body>
+</html>
